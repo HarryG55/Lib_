@@ -10,7 +10,7 @@
 <html lang="en">
 <head>
   <!-- Required meta tags -->
-  <meta charset="utf-8">
+  <meta charset="GBK">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -22,31 +22,32 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
+
+
+
 <div class="container">
 
   <div class="row" id="pwd-container">
     <div class="col-md-4"></div>
 
-    <div class="col-md-4">
-      <section class="login-form">
-        <form method="post" action="#" role="login">
-          <br>
-          <input type="email" name="email" placeholder="Email" required class="form-control input-lg" />
+    <section class="login-form">
+      <form method="post" action="loginServlet" role="login">
+        <br>
+        <input type="string" id="username" name="username" placeholder="用户名" required class="form-control input-lg" />
 
-          <input type="password" class="form-control input-lg" id="password" placeholder="Password" required="" />
-
-
-          <div class="pwstrength_viewport_progress"></div>
+        <input type="password" class="form-control input-lg" id="password" placeholder="密码" required />
 
 
-          <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Sign in</button>
+        <div class="pwstrength_viewport_progress"></div>
 
 
-        </form>
+        <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">登录</button>
+        <button type="reset" name="reset_button" class="btn btn-lg btn-primary btn-block">重置</button>
 
-          <a>creator: guoyachen 20176625</a>
-        </div>
-      </section>
+      </form>
+
+      <a>creator: guoyachen 20176625</a>
+    </section>
     </div>
 
     <div class="col-md-4"></div>
