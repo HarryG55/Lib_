@@ -19,10 +19,7 @@ import java.util.List;
  * @Feature:
  */
 
-
-
 public class LoginServlet extends HttpServlet {
-
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
     {
         String path = "index.jsp";
