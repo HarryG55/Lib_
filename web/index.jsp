@@ -31,7 +31,7 @@
     <div class="col-md-4"></div>
 
     <section class="login-form">
-      <form method="post" action="loginServlet" role="login">
+      <form action="${pageContext.request.contextPath}/LoginServlet" method="post" role="login">
         <br>
         <input type="string" id="username" name="username" placeholder="用户名" required class="form-control input-lg" />
 
