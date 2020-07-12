@@ -26,7 +26,7 @@ public class UserDAOImpl implements UserDAO{
     public boolean findLogin(User user) throws Exception {
         boolean flag = false;
 
-        String sql="SELECT name FROM user WHERE userid=? AND password=?";
+        String sql="SELECT user FROM test_table WHERE user=? AND password=?";
         this.pstmt = this.conn.prepareStatement(sql);
         this.pstmt.setString(1,user.getUsername());
         this.pstmt.setString(2,user.getPassword());

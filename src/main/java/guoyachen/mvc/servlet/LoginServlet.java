@@ -33,15 +33,21 @@ public class LoginServlet extends HttpServlet {
         user.setPassword(password);
 
         try {
+            //这三个一定要在输出流之前
+            req.setCharacterEncoding("utf-8");
+            resp.setContentType("text/html;charset=utf-8");
+            resp.setCharacterEncoding("utf-8");
 
             PrintWriter out = resp.getWriter();
 
             if(DAOFactory.getUserDAOInstance().findLogin(user))
             {
+
                 out.print("<script>alert('登录成功');window.location.href='index.jsp'</script>");
             }
             else
             {
+
                 out.print("<script>alert('登录失败，请重新登录');window.location.href='index.jsp'</script>");
             }
         } catch (Exception e) {
