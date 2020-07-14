@@ -2,10 +2,12 @@ package guoyachen.mvc;
 
 import com.opensymphony.xwork2.ActionSupport;
 import guoyachen.mvc.dbc.DatabaseConnection;
-import guoyachen.mvc.vo.User;
 
+import java.math.BigInteger;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.security.MessageDigest;
+
 
 /**
  * @Author:Guo Yachen
@@ -35,27 +37,39 @@ public class Register extends ActionSupport {
     public String execute() throws Exception
     {
 
-        return "success";
-//        try {
-//            conn = (Connection) new DatabaseConnection();
-//            String sql = "INSERT INTO test_table (user,password) VALUES('"+user.getUsername()+"','"+user.getPassword()+"');";
-//            System.out.print(sql);
-//            prep = conn.prepareStatement(sql);
-//            int result = prep.executeUpdate();
-//
-//            if(result >0)
-//            {
-//                return "success";
-//            }
-//            else
-//            {
-//                return "error";
-//            }
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//        return"error";
+        try {
+
+            conn = (Connection) new DatabaseConnection();
+
+            MessageDigest md5 = MessageDigest.getInstance("MD5");
+
+            md5.update(password.getBytes());
+
+            String password_md5 = new BigInteger(1,md5.digest()).toString(16);
+
+
+
+
+            String sql = "INSERT INTO test_table (user,password) VALUES('"+username+"','"+password_md5+"');";
+            System.out.print(sql);
+            prep = conn.prepareStatement(sql);
+            int result = prep.executeUpdate();
+
+            if(result >0)
+            {
+                return "success";
+            }
+            else
+            {
+                return "error";
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return"error";
     }
 }
+
+

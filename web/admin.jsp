@@ -23,15 +23,30 @@
 <!------ Include the above in your HEAD tag ---------->
 
 
-<br>
+<%
+    if(session.getAttribute("userid")!=null){
+%>
 
+
+<br>
+<a font="黑体">登录成功！</a>
+<button type="button" name="back" onclick="<%session.invalidate(); %>;window.location.href='index.jsp'" class="btn btn-lg btn-primary btn-block">返回</button>
 <section class="login-form">
-<a font="黑体"  >已经成功登录！</a>
-<button type="button" name="back" onclick="window.location.href='index.jsp'" class="btn btn-lg btn-primary btn-block">返回</button>
+
 </section>
-<!--//TODO:有余力的话就再做一个登陆限制检验 -->
 <!--//TODO:完成相关的页面设计 -->
 
+
+<%
+    }else{
+
+%>
+<a font="黑体"  >登录失败！</a>
+<button type="button" name="back" onclick="window.location.href='index.jsp'" class="btn btn-lg btn-primary btn-block">返回</button>
+
+<%
+    }
+%>
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

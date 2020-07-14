@@ -1,5 +1,7 @@
 package guoyachen.mvc.dao.implement;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,12 +30,21 @@ public class UserDAOImpl implements UserDAO {
 
         boolean flag = false;
 
+        String password = user.getPassword();
 
-        String sql = "SELECT user FROM test_table WHERE user='"+user.getUsername()+"' AND password='"+user.getPassword()+"';";
+
+
+        MessageDigest md5 = MessageDigest.getInstance("MD5");
+
+        md5.update(password.getBytes());
+
+        String password_md5 = new BigInteger(1,md5.digest()).toString(16);
+
+
+        String sql = "SELECT user FROM test_table WHERE user='"+user.getUsername()+"' AND password='"+password_md5+"';";
         System.out.print(sql);
         this.pstmt = this.conn.prepareStatement(sql);
-//        this.pstmt.setString(1, user.getUsername());
-//        this.pstmt.setString(2, user.getPassword());
+
 
         ResultSet rs = this.pstmt.executeQuery();
 

@@ -23,6 +23,18 @@
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+
+        <servlet-name>RandomServlet</servlet-name>
+        <servlet-class>guoyachen.mvc.servlet.RandomServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RandomServlet</servlet-name>
+        <url-pattern>/random.jpg</url-pattern>
+    </servlet-mapping>
+
 <!--    <error-page>-->
 <!--        <error-code>404</error-code>-->
 <!--        <location></location>-->

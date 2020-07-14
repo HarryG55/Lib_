@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <title>Welcome</title>
 </head>
-<body>
+<body background="wallhaven-g8gmde.png">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -27,13 +27,30 @@
   <div class="row" id="pwd-container">
     <div class="col-md-4"></div>
 
-    <section class="login-form">
-      <form action="${pageContext.request.contextPath}/LoginServlet" method="post" role="login">
-        <br><br><br><br><br><br><br><br><br><br>
-        <input type="string" id="username" name="username" placeholder="用户名" required class="form-control input-lg" />
+        <section class="login-form">
+          <form action="${pageContext.request.contextPath}/LoginServlet" method="post" role="login">
+            <br><br><br><br><br><br><br><br><br><br>
+            <input type="string" id="username" name="username" placeholder="用户名" required class="form-control input-lg" />
 
-        <input type="password" id="password" name="password" placeholder="密码" required class="form-control input-lg" />
-        <br><br>
+            <input type="password" id="password" name="password" placeholder="密码" required class="form-control input-lg" />
+            <br><br>
+
+
+            <span><input name="verifyCode" type="text" placeholder="验证码" onclick="JavaScript:this.value=''" required  /></span>
+            <cite> <img src="random.jpg" alt="" id="randImg" onclick="changeRandom()"/> </cite>
+
+        <script language="javascript">
+
+          function changeRandom(){
+            //alert("ok");
+            //获取图片
+
+            //修改图片的地址
+            $("#randImg").attr("src","random.jpg?time="+new Date().toLocaleString());
+
+          }
+        </script>
+
 
         <div class="pwstrength_viewport_progress"></div>
 
@@ -46,6 +63,10 @@
       </form>
 
       <a>creator: guoyachen 20176625</a>
+
+
+
+
     </section>
     </div>
 
