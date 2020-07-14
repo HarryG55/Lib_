@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: Yache
@@ -28,7 +29,7 @@
         <div class="col-md-4"></div>
 
         <section class="login-form">
-            <form action="register.action" method="post" role="login">
+            <form action="${pageContext.request.contextPath}/register.action" method="post">
                 <br><br><br><br><br><br><br><br><br><br>
                 <input type="string" id="username" name="user.name" placeholder="用户名" required class="form-control input-lg" />
 
