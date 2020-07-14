@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Yache
-  Date: 2020/7/11
-  Time: 15:38
+  Date: 2020/7/14
+  Time: 17:30
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -23,43 +23,18 @@
 <!------ Include the above in your HEAD tag ---------->
 
 
-<%
-    if(session.getAttribute("userid")!=null){
-%>
-
-
-
 <div style="text-align: center">
-<br>
-<h2 class="text-success">登录成功！</h2>
-<br><br>
 
-<button type="button" name="back" onclick="<%session.invalidate(); %>;window.location.href='index.jsp'" class="btn btn-success">返回</button>
-<section class="login-form">
+    <br>
+    <h2 class="text-warning">注册失败！</h2>
+    <br><br>
+
+    <button type="button" name="back" onclick="window.location.href='index.jsp'" class="btn btn-danger btn-lg">返回</button>
+
 
 </div>
 
 </section>
-
-
-
-<%
-    }else{
-
-%>
-
-<div style="text-align: center">
-<br>
-<h2 class="text-warning">登录失败！</h2>
-<br><br>
-
-    <button type="button" name="back" onclick="window.location.href='index.jsp'" class="btn btn-danger btn-lg ">返回</button>
-</div>
-
-
-<%
-    }
-%>
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

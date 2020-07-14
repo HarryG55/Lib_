@@ -3,6 +3,7 @@ package guoyachen.mvc;
 import com.opensymphony.xwork2.ActionSupport;
 import guoyachen.mvc.dbc.DatabaseConnection;
 
+import java.io.PrintWriter;
 import java.math.BigInteger;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,7 +21,7 @@ public class Register extends ActionSupport {
 
     private String username;
     private String password;
-    Connection conn;
+    DatabaseConnection conn;
     PreparedStatement prep;
 
 
@@ -39,7 +40,12 @@ public class Register extends ActionSupport {
 
         try {
 
-            conn = (Connection) new DatabaseConnection();
+            conn =  new DatabaseConnection();
+
+            Connection con = conn.getConnection();
+            System.out.println("user="+username);
+            System.out.println("password="+password);
+
 
             MessageDigest md5 = MessageDigest.getInstance("MD5");
 
@@ -52,11 +58,12 @@ public class Register extends ActionSupport {
 
             String sql = "INSERT INTO test_table (user,password) VALUES('"+username+"','"+password_md5+"');";
             System.out.print(sql);
-            prep = conn.prepareStatement(sql);
+            prep = con.prepareStatement(sql);
             int result = prep.executeUpdate();
 
             if(result >0)
             {
+
                 return "success";
             }
             else

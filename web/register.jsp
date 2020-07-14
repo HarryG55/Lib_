@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>Welcome</title>
 </head>
-<body>
+<body background="wallhaven-13ygq9.jpg">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -28,11 +28,11 @@
         <div class="col-md-4"></div>
 
         <section class="login-form">
-            <form action="register.action" method="post" role="login">
+            <form action="${pageContext.request.contextPath}/register.action" method="post" role="login">
                 <br><br><br><br><br><br><br><br><br><br>
-                <input type="string" id="username" name="user.name" placeholder="用户名" required class="form-control input-lg" />
+                <input type="string" id="username" name="username" placeholder="用户名" required class="form-control input-lg" />
 
-                <input type="password" id="password" name="user.password" placeholder="密码" required class="form-control input-lg" />
+                <input type="password" id="password" name="password" placeholder="密码" required class="form-control input-lg" />
                 <br><br>
 
                 <div class="pwstrength_viewport_progress"></div>
