@@ -22,9 +22,6 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
-
-
-
 <div class="container">
 
   <div class="row" id="pwd-container">
@@ -32,17 +29,19 @@
 
     <section class="login-form">
       <form action="${pageContext.request.contextPath}/LoginServlet" method="post" role="login">
-        <br>
+        <br><br><br><br><br><br><br><br><br><br>
         <input type="string" id="username" name="username" placeholder="用户名" required class="form-control input-lg" />
 
-        <input type="password" class="form-control input-lg" id="password" placeholder="密码" required />
-
+        <input type="password" id="password" name="password" placeholder="密码" required class="form-control input-lg" />
+        <br><br>
 
         <div class="pwstrength_viewport_progress"></div>
 
 
         <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">登录</button>
         <button type="reset" name="reset_button" class="btn btn-lg btn-primary btn-block">重置</button>
+
+        <button type="button" name="register" onclick="window.location.href='register.jsp'" class="btn btn-lg btn-primary btn-block">注册</button>
 
       </form>
 

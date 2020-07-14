@@ -3,8 +3,9 @@ package guoyachen.mvc.servlet;
 
 import guoyachen.mvc.factory.DAOFactory;
 import guoyachen.mvc.vo.User;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -40,16 +41,22 @@ public class LoginServlet extends HttpServlet {
 
             PrintWriter out = resp.getWriter();
 
+            ApplicationContext context = new ClassPathXmlApplicationContext("applicationcontext.xml");
+
+            DAOFactory Factory =(DAOFactory) context.getBean("Factory");
+
             if(DAOFactory.getUserDAOInstance().findLogin(user))
             {
 
-                out.print("<script>alert('登录成功');window.location.href='index.jsp'</script>");
+                out.print("<script>alert('登录成功');window.location.href='admin.jsp'</script>");
             }
             else
             {
 
                 out.print("<script>alert('登录失败，请重新登录');window.location.href='index.jsp'</script>");
             }
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }

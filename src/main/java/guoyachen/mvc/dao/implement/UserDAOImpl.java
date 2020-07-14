@@ -13,38 +13,43 @@ import guoyachen.mvc.vo.User;
  * @Description:
  * @Feature:
  */
-public class UserDAOImpl implements UserDAO{
+public class UserDAOImpl implements UserDAO {
 
     private Connection conn = null;
     private PreparedStatement pstmt = null;
 
-    public UserDAOImpl(Connection conn){
+
+    public UserDAOImpl(Connection conn) {
         this.conn = conn;
     }
 
 
     public boolean findLogin(User user) throws Exception {
+
         boolean flag = false;
 
-        String sql="SELECT user FROM test_table WHERE user=? AND password=?";
+
+        String sql = "SELECT user FROM test_table WHERE user='"+user.getUsername()+"' AND password='"+user.getPassword()+"';";
+        System.out.print(sql);
         this.pstmt = this.conn.prepareStatement(sql);
-        this.pstmt.setString(1,user.getUsername());
-        this.pstmt.setString(2,user.getPassword());
+//        this.pstmt.setString(1, user.getUsername());
+//        this.pstmt.setString(2, user.getPassword());
 
         ResultSet rs = this.pstmt.executeQuery();
 
-        if(rs.next())
-        {
-            user.setUsername(rs.getString(1));
-            flag = true;
+        if (rs.next()) {
 
-            if(this.pstmt != null)
-            {
-                this.pstmt.close();
-            }
+            flag = true;
+        }
+
+        if (this.pstmt != null) {
+            this.pstmt.close();
         }
 
 
+        System.out.print(flag);
         return flag;
     }
+
+
 }

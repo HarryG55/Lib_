@@ -5,4 +5,16 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
+
+<!--//TODO:Struts的相关功能有问题需要测试 -->
+
+
+<package name="default" namespace="/WebPage_Client_Test_war_exploded" >
+    <action name="register" class="guoyachen.mvc.Register" method="execute" >
+<!--        <result name="success">/index.jsp</result>-->
+<!--        <result name="error">/register.jsp</result>-->
+    </action>
+
+</package>
+
 </struts>
